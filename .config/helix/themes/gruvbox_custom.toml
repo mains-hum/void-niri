@@ -1,0 +1,22 @@
+inherits = "gruvbox"
+
+"ui.background" = { }
+"ui.linenr" = { fg = "#504945" }
+"ui.linenr.selected" = { fg = "#665c54" }
+"ui.statusline" = { fg = "#ebdbb2", bg = "#3c3836" }
+"ui.virtual.indent-guide" = { fg = "#504945" }
+"ui.cursor.match" = { fg = "#fbf1c7", modifiers = ["bold", "underline"] }
+"ui.bufferline.active" = { fg = "#282828", bg = "#ebdbb2", modifiers = ["bold"] }
+"ui.statusline.inactive" = { fg = "#928374", bg = "#282828" }
+"ui.help" = { bg = "#3c3836", fg = "#ebdbb2" }
+"ui.menu" = { bg = "#3c3836", fg = "#ebdbb2" }
+"ui.menu.selected" = { bg = "#ebdbb2", fg = "#282828" }
+"ui.selection" = { bg = "#504945" }
+
+"variable" = "#ebdbb2"
+"constant" = "#fe8019"
+"keyword" = "#d3869b"
+"string" = "#b8bb26"
+"function" = "#83a598"
+"type" = "#fabd2f"
+"ui.cursor" = { fg = "#282828", bg = "#fbf1c7" }

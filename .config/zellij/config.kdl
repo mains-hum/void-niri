@@ -1,0 +1,63 @@
+default_shell "nu"
+theme "gruvbox-dark"
+show_startup_tips false
+// Это вернет ту самую панель со стрелочками снизу
+default_layout "compact"
+pane_frames true
+mouse_mode true
+
+session_serialization true
+serialize_pane_viewport true
+scrollback_lines_to_serialize 10000
+
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+
+themes {
+    gruvbox-dark {
+        fg "#ebdbb2"
+        bg "#282828"
+        black "#3c3836"
+        red "#fb4934"
+        green "#b8bb26"
+        yellow "#fabd2f"
+        blue "#83a598"
+        magenta "#d3869b"
+        cyan "#8ec07c"
+        white "#fbf1c7"
+        orange "#fe8019"
+    }
+}
+
+keybinds {
+    shared_except "locked" {
+        bind "Ctrl a" { NewPane "Down"; }
+        bind "Ctrl s" { NewPane "Right"; }
+        bind "Ctrl h" { MoveFocus "Left"; }
+        bind "Ctrl l" { MoveFocus "Right"; }
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
+        bind "Alt h" { Resize "Increase Left"; }
+        bind "Alt l" { Resize "Increase Right"; }
+        bind "Alt j" { Resize "Increase Down"; }
+        bind "Alt k" { Resize "Increase Up"; }
+        bind "Ctrl t" { NewTab; }
+        bind "Alt w" { CloseTab; }
+        bind "Alt n" { GoToNextTab; }
+        bind "Alt p" { GoToPreviousTab; }
+    }
+}
+
+plugins {
+    resurrect location="zellij:zellij-resurrect"
+}
+
+load_plugins {
+    resurrect {
+        on_startup true
+        interval 30
+    }
+}

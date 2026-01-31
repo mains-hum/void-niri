@@ -1,0 +1,93 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,ru"
+            options "grp:win_space_toggle,caps:super"
+        }
+    }
+    touchpad { tap; dwt; }
+}
+
+output "eDP-1" {
+    mode "1366x768@60"
+    scale 1.0
+}
+
+layout {
+    gaps 10
+    center-focused-column "never"
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        width 3
+        active-color "#c3e88d"
+        inactive-color "rgba(0, 0, 0, 0)"
+    }
+}
+
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
+    min-height 0
+}
+
+spawn-at-startup "swww-daemon"
+spawn-at-startup "waybar"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "swww img ~/Downloads/Boxes.png"
+
+binds {
+    Mod+Space { spawn "niri-msg" "action" "set-keymap-layout" "next"; }
+
+    Mod+Return { spawn "foot"; }
+    Mod+E { spawn "foot"; }
+    Mod+Q { close-window; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+R { spawn "fuzzel"; }
+    Mod+W { spawn "firefox"; }
+    Mod+D { spawn "telegram-desktop"; }
+    
+    Alt+Shift+S { spawn "bash" "-c" "grim -g \"$(slurp)\" ~/Pictures/screenshot.png"; }
+    Mod+V { spawn "bash" "-c" "cliphist list | fuzzel -dmenu | cliphist decode | wl-copy"; }
+    
+    Super+Alt+Shift+S { spawn "loginctl" "suspend"; }
+    Super+Alt+Shift+Q { spawn "loginctl" "poweroff"; }
+    Super+Alt+Shift+R { spawn "loginctl" "reboot"; }
+
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+    Mod+K { focus-window-up; }
+    Mod+J { focus-window-down; }
+
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+L { move-column-right; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+
+    Mod+Ctrl+Q { quit; }
+    
+    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+    XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+    XF86AudioMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+}
