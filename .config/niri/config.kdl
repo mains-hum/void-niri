@@ -19,7 +19,7 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 3
+        width 2
         active-color "#c3e88d"
         inactive-color "rgba(0, 0, 0, 0)"
     }
@@ -34,7 +34,10 @@ window-rule {
 spawn-at-startup "swww-daemon"
 spawn-at-startup "waybar"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
-spawn-at-startup "swww img ~/Downloads/Boxes.png"
+spawn-at-startup "swww img ~/Pictures/gowall/wal1.png"
+spawn-at-startup "pipewire"
+spawn-at-startup "pipewire-pulse"
+spawn-at-startup "wireplumber"
 
 binds {
     Mod+Space { spawn "niri-msg" "action" "set-keymap-layout" "next"; }

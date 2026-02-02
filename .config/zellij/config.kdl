@@ -1,7 +1,6 @@
 default_shell "nu"
 theme "gruvbox-dark"
 show_startup_tips false
-// Это вернет ту самую панель со стрелочками снизу
 default_layout "compact"
 pane_frames true
 mouse_mode true

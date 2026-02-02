@@ -1,0 +1,93 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 16,
+    "exclusive": true,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "modules-left": [
+        "niri/workspaces",
+        "niri/window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "backlight",
+        "memory",
+        "battery",
+        "niri/language",
+        "clock",
+        "tray"
+    ],
+    "niri/workspaces": {
+        "format": "󰥱",
+        "on-click": "activate",
+        "all-outputs": true,
+        "persistent-workspaces": {
+            "1": []
+        }
+    },
+    "niri/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "min-length": 3
+    },
+    "niri/window": {
+        "format": "{}",
+        "max-length": 40
+    },
+    "clock": {
+        "format": "{:%H:%M:%S | %d.%m.%y | %A}",
+        "interval": 1
+    },
+    "memory": {
+        "format": "  {used:0.1f}G",
+        "interval": 10
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6
+    },
+    "network": {
+        "format-wifi": "  {bandwidthDownBits}",
+        "format-ethernet": "󰈀  {bandwidthDownBits}",
+        "format-disconnected": "󰖪  OFF",
+        "interval": 1,
+        "tooltip-format": "{ifname} via {gwaddr}\n⬆ {bandwidthUpBits} ⬇ {bandwidthDownBits}",
+        "on-click": "nm-connection-editor"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "MUTED",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "default": ["", "", ""]
+        },
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+        "on-click": "pavucontrol"
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    }
+}
